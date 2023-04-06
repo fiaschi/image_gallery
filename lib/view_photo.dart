@@ -75,7 +75,7 @@ class _ViewPhotosState extends State<ViewPhotos> {
                 height: 60.0,
                 child: (progress == null || progress.cumulativeBytesLoaded == null || progress.expectedTotalBytes == null)?CircularProgressIndicator():CircularProgressIndicator(
                   value: progress.cumulativeBytesLoaded /
-                      progress?.expectedTotalBytes!,
+                      num.tryParse(progress.expectedTotalBytes!),
                 ),
               ),
             ),
