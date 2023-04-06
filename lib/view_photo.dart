@@ -7,15 +7,15 @@ class ViewPhotos extends StatefulWidget {
   final String heroTitle;
   final imageIndex;
   final List<dynamic> imageList;
-  ViewPhotos({this.imageIndex, this.imageList, this.heroTitle = "img"});
+  ViewPhotos({this.imageIndex,required this.imageList, this.heroTitle = "img"});
 
   @override
   _ViewPhotosState createState() => _ViewPhotosState();
 }
 
 class _ViewPhotosState extends State<ViewPhotos> {
-  PageController pageController;
-  int currentIndex;
+  late PageController pageController;
+  late int currentIndex;
   @override
   void initState() {
     // TODO: implement initState
@@ -75,7 +75,7 @@ class _ViewPhotosState extends State<ViewPhotos> {
                 height: 60.0,
                 child: (progress == null || progress.cumulativeBytesLoaded == null || progress.expectedTotalBytes == null)?CircularProgressIndicator():CircularProgressIndicator(
                   value: progress.cumulativeBytesLoaded /
-                      progress.expectedTotalBytes,
+                      progress.expectedTotalBytes.toInt(),
                 ),
               ),
             ),
